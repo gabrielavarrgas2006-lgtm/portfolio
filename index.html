@@ -3,29 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gabriela Vargas — Developer</title>
+  <title>Gabriela Vargas — Developer Junior · Dynamics 365 BC</title>
   <meta name="description" content="Portafolio profesional de Gabriela Vargas, Developer Junior en Microsoft Dynamics 365 Business Central y estudiante de Ingeniería en Desarrollo de Software." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- Progress bar superior -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Cursor personalizado -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
   <!-- Navegación -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <a href="#inicio" class="logo">
-        <span class="logo-mark">GV</span>
-        <span class="logo-text">Gabriela Vargas</span>
+        <span class="logo-mark">gv</span>
+        <span class="logo-text">
+          <strong>Gabriela Vargas</strong>
+          <em>Developer Junior</em>
+        </span>
       </a>
       <ul class="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#experiencia">Experiencia</a></li>
-        <li><a href="#educacion">Educación</a></li>
-        <li><a href="#habilidades">Habilidades</a></li>
-        <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+        <li><a href="#inicio"><span>01</span>Inicio</a></li>
+        <li><a href="#sobre-mi"><span>02</span>Perfil</a></li>
+        <li><a href="#experiencia"><span>03</span>Trayectoria</a></li>
+        <li><a href="#habilidades"><span>04</span>Stack</a></li>
+        <li><a href="#contacto" class="nav-cta">Contactar <i class="fas fa-arrow-right"></i></a></li>
       </ul>
       <button class="menu-toggle" id="menuToggle" aria-label="Menú">
         <span></span><span></span><span></span>
@@ -35,260 +45,335 @@
 
   <!-- Hero -->
   <section class="hero" id="inicio">
-    <div class="hero-content">
-      <div class="hero-text">
-        <span class="hero-eyebrow">Portafolio profesional</span>
-        <h1 class="hero-name">Gabriela Vargas</h1>
-        <h2 class="hero-title">
-          <span class="typing" id="typing"></span><span class="cursor-blink">|</span>
-        </h2>
+    <div class="hero-bg-decor">
+      <div class="decor-grid"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="availability">
+          <span class="dot"></span>
+          <span>Disponible para oportunidades</span>
+        </div>
+        <h1 class="hero-name">
+          <span class="line">Gabriela</span>
+          <span class="line italic">Vargas</span>
+        </h1>
+        <div class="hero-role">
+          <span class="role-label">Perfil</span>
+          <span class="role-text" id="typing"></span><span class="cursor-blink">_</span>
+        </div>
         <p class="hero-description">
-          Desarrolladora junior especializada en Microsoft Dynamics 365 Business Central con el lenguaje AL. Actualmente cursando Ingeniería en Desarrollo de Software en la Universidad Fidélitas, con enfoque en soluciones empresariales eficientes y código mantenible.
+          Desarrolladora junior especializada en <em>Microsoft Dynamics 365 Business Central</em> con el lenguaje AL. Cursando Ingeniería en Desarrollo de Software en la Universidad Fidélitas, enfocada en soluciones empresariales, código mantenible y arquitecturas limpias.
         </p>
-        <div class="hero-buttons">
+        <div class="hero-actions">
           <a href="#contacto" class="btn btn-primary">
-            Contáctame <i class="fas fa-arrow-right"></i>
+            <span>Hablemos</span>
+            <i class="fas fa-arrow-up-right-from-square"></i>
           </a>
-          <a href="#sobre-mi" class="btn btn-secondary">
-            Conocer más
+          <a href="#sobre-mi" class="btn btn-ghost">
+            <span>Ver portafolio</span>
           </a>
         </div>
-        <div class="hero-meta">
-          <div class="meta-item">
-            <span class="meta-label">Ubicación</span>
-            <span class="meta-value">San José, Costa Rica</span>
+        <div class="hero-inline-stats">
+          <div>
+            <span class="num">04</span>
+            <span class="lbl">Meses en la industria</span>
           </div>
-          <div class="meta-divider"></div>
-          <div class="meta-item">
-            <span class="meta-label">Disponibilidad</span>
-            <span class="meta-value">Abierta a oportunidades</span>
+          <div>
+            <span class="num">2028</span>
+            <span class="lbl">Graduación prevista</span>
+          </div>
+          <div>
+            <span class="num">CR</span>
+            <span class="lbl">San José, Costa Rica</span>
           </div>
         </div>
       </div>
-      <div class="hero-image">
-        <div class="avatar-card">
-          <div class="avatar-frame">
-            <div class="avatar-initials">GV</div>
+
+      <div class="hero-right">
+        <div class="portrait">
+          <div class="portrait-frame">
+            <div class="portrait-monogram">
+              <span>Gabriela</span>
+              <span class="mono-large">GV</span>
+              <span>Vargas · 2026</span>
+            </div>
+            <div class="portrait-deco">
+              <span class="deco-corner tl"></span>
+              <span class="deco-corner tr"></span>
+              <span class="deco-corner bl"></span>
+              <span class="deco-corner br"></span>
+            </div>
           </div>
-          <div class="avatar-info">
-            <div class="status-dot"></div>
-            <span>Developer Junior · Dynamics 365 BC</span>
+          <div class="portrait-tag tag-top">
+            <i class="fab fa-microsoft"></i>
+            <span>Dynamics 365 · AL Developer</span>
+          </div>
+          <div class="portrait-tag tag-bottom">
+            <i class="fas fa-code"></i>
+            <span>Desde 2025</span>
           </div>
         </div>
       </div>
     </div>
+
+    <a href="#sobre-mi" class="scroll-cue">
+      <span>Explorar</span>
+      <span class="cue-line"></span>
+    </a>
   </section>
+
+  <!-- Marquee de tecnologías -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span>Microsoft Dynamics 365</span><span class="dot-sep">◆</span>
+        <span>AL Language</span><span class="dot-sep">◆</span>
+        <span>Business Central</span><span class="dot-sep">◆</span>
+        <span>APIs REST</span><span class="dot-sep">◆</span>
+        <span>Git · GitHub</span><span class="dot-sep">◆</span>
+        <span>SQL Server</span><span class="dot-sep">◆</span>
+        <span>Clean Code</span><span class="dot-sep">◆</span>
+        <span>Design Patterns</span><span class="dot-sep">◆</span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span>Microsoft Dynamics 365</span><span class="dot-sep">◆</span>
+        <span>AL Language</span><span class="dot-sep">◆</span>
+        <span>Business Central</span><span class="dot-sep">◆</span>
+        <span>APIs REST</span><span class="dot-sep">◆</span>
+        <span>Git · GitHub</span><span class="dot-sep">◆</span>
+        <span>SQL Server</span><span class="dot-sep">◆</span>
+        <span>Clean Code</span><span class="dot-sep">◆</span>
+        <span>Design Patterns</span><span class="dot-sep">◆</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Sobre mí -->
   <section class="section" id="sobre-mi">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-eyebrow">01 — Perfil</span>
-        <h2 class="section-title">Sobre mí</h2>
-        <div class="section-line"></div>
-      </div>
+      <header class="section-head reveal">
+        <div class="section-index">— 02</div>
+        <h2 class="section-title">Perfil <em>profesional</em></h2>
+      </header>
       <div class="about-grid">
-        <div class="about-text reveal">
+        <div class="about-essay reveal">
           <p class="lead">
-            Soy estudiante de <strong>Ingeniería en Desarrollo de Software</strong> en la Universidad Fidélitas y actualmente me desempeño como <strong>Developer Junior</strong> enfocada en Microsoft Dynamics 365 Business Central.
+            Construyo soluciones empresariales con <em>Microsoft Dynamics 365 Business Central</em>, traduciendo procesos complejos de negocio en código limpio, escalable y mantenible.
           </p>
           <p>
-            Mi trabajo consiste en desarrollar extensiones con el lenguaje AL: creación de tablas, páginas, codeunits y reportes, así como integrar Business Central con otros sistemas empresariales.
+            Mi día a día consiste en desarrollar extensiones con el lenguaje AL —tablas, páginas, codeunits, reportes— e integrar Business Central con sistemas externos mediante APIs REST y servicios web.
           </p>
           <p>
-            Me apasiona entender cómo el software resuelve problemas reales de negocio —contabilidad, inventarios, ventas— y traducir esos procesos a código limpio y mantenible.
+            Me apasiona entender cómo el software resuelve problemas reales en contabilidad, inventarios y ventas, y convertir esa lógica en arquitecturas elegantes siguiendo principios SOLID y patrones de diseño probados.
           </p>
-        </div>
-        <div class="stats-grid reveal">
-          <div class="stat-card">
-            <div class="stat-number" data-target="2025">0</div>
-            <div class="stat-label">Inicio universitario</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" data-target="4">0</div>
-            <div class="stat-label">Meses de experiencia</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">AL</div>
-            <div class="stat-label">Lenguaje principal</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">BC</div>
-            <div class="stat-label">Business Central</div>
+
+          <div class="about-signature">
+            <span class="sig-name">Gabriela Vargas</span>
+            <span class="sig-role">Developer Junior · Costa Rica</span>
           </div>
         </div>
+        <aside class="about-facts reveal">
+          <div class="fact-header">
+            <i class="fas fa-id-card"></i>
+            <span>Información rápida</span>
+          </div>
+          <dl>
+            <div class="fact-row">
+              <dt>Nombre</dt>
+              <dd>Gabriela Vargas</dd>
+            </div>
+            <div class="fact-row">
+              <dt>Rol actual</dt>
+              <dd>Developer Junior</dd>
+            </div>
+            <div class="fact-row">
+              <dt>Empresa</dt>
+              <dd>ET: Tecnologías Emergentes</dd>
+            </div>
+            <div class="fact-row">
+              <dt>Universidad</dt>
+              <dd>Universidad Fidélitas</dd>
+            </div>
+            <div class="fact-row">
+              <dt>Especialidad</dt>
+              <dd>Dynamics 365 BC · AL</dd>
+            </div>
+            <div class="fact-row">
+              <dt>Idiomas</dt>
+              <dd>Español · Inglés</dd>
+            </div>
+            <div class="fact-row">
+              <dt>Ubicación</dt>
+              <dd>San José, Costa Rica</dd>
+            </div>
+          </dl>
+        </aside>
       </div>
     </div>
   </section>
 
   <!-- Experiencia -->
-  <section class="section section-alt" id="experiencia">
+  <section class="section section-cream" id="experiencia">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-eyebrow">02 — Trayectoria</span>
-        <h2 class="section-title">Experiencia profesional</h2>
-        <div class="section-line"></div>
-      </div>
+      <header class="section-head reveal">
+        <div class="section-index">— 03</div>
+        <h2 class="section-title">Experiencia <em>profesional</em></h2>
+      </header>
       <div class="timeline">
-        <div class="timeline-item reveal">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-header">
+        <article class="timeline-item reveal">
+          <div class="t-marker">
+            <span></span>
+          </div>
+          <div class="t-body">
+            <div class="t-head">
               <div>
                 <h3>Developer Junior</h3>
                 <h4>ET: Tecnologías Emergentes del Mundo</h4>
               </div>
-              <span class="timeline-date">Ene. 2026 — Actualidad</span>
+              <span class="t-date">Ene. 2026 — Actualidad</span>
             </div>
-            <div class="timeline-meta">
-              <span><i class="fas fa-briefcase"></i> Jornada completa</span>
-              <span><i class="fas fa-location-dot"></i> Lima, Perú · Presencial</span>
+            <div class="t-meta">
+              <span><i class="fas fa-briefcase"></i>Jornada completa</span>
+              <span><i class="fas fa-location-dot"></i>Lima, Perú · Presencial</span>
+              <span><i class="fas fa-building"></i>Sector tecnológico</span>
             </div>
-            <p class="timeline-description">
-              Desarrollo de extensiones en Microsoft Dynamics 365 Business Central con el lenguaje AL. Creación de tablas, páginas, codeunits y reportes, además de integraciones entre Business Central y otros sistemas empresariales.
+            <p class="t-description">
+              Desarrollo de extensiones en <em>Microsoft Dynamics 365 Business Central</em> con el lenguaje AL. Creación de tablas, páginas, codeunits y reportes, además de integraciones entre Business Central y sistemas empresariales externos.
             </p>
-            <div class="tech-tags">
+            <ul class="t-achievements">
+              <li><i class="fas fa-check"></i>Implementación de extensiones personalizadas para módulos de contabilidad y ventas.</li>
+              <li><i class="fas fa-check"></i>Integración de Business Central con servicios externos mediante APIs REST.</li>
+              <li><i class="fas fa-check"></i>Aplicación de buenas prácticas de control de versiones con Git.</li>
+            </ul>
+            <div class="t-stack">
               <span>Dynamics 365</span>
               <span>AL Language</span>
               <span>Business Central</span>
               <span>APIs REST</span>
               <span>Git</span>
+              <span>SQL</span>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </article>
 
-  <!-- Educación -->
-  <section class="section" id="educacion">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-eyebrow">03 — Formación</span>
-        <h2 class="section-title">Educación</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="education-card reveal">
-        <div class="education-header">
-          <div class="education-icon">
-            <i class="fas fa-graduation-cap"></i>
+        <article class="timeline-item reveal">
+          <div class="t-marker">
+            <span></span>
           </div>
-          <div>
-            <span class="education-date">2025 — 2028</span>
-            <h3>Ingeniería en Desarrollo de Software</h3>
-            <h4>Universidad Fidélitas · Costa Rica</h4>
+          <div class="t-body">
+            <div class="t-head">
+              <div>
+                <h3>Ingeniería en Desarrollo de Software</h3>
+                <h4>Universidad Fidélitas</h4>
+              </div>
+              <span class="t-date">2025 — 2028</span>
+            </div>
+            <div class="t-meta">
+              <span><i class="fas fa-graduation-cap"></i>Grado universitario</span>
+              <span><i class="fas fa-location-dot"></i>Costa Rica</span>
+            </div>
+            <p class="t-description">
+              Formación enfocada en desarrollo de aplicaciones, arquitectura de software, bases de datos, programación orientada a objetos, tecnologías emergentes y metodologías ágiles.
+            </p>
+            <div class="t-stack">
+              <span>POO</span>
+              <span>Bases de Datos</span>
+              <span>Ingeniería de Software</span>
+              <span>Tecnologías Emergentes</span>
+            </div>
           </div>
-        </div>
-        <p>
-          Programa enfocado en desarrollo de aplicaciones, arquitectura de software, bases de datos, programación orientada a objetos, tecnologías emergentes y metodologías ágiles.
-        </p>
-        <div class="courses-grid">
-          <div class="course"><i class="fas fa-circle-check"></i> Tecnologías Emergentes</div>
-          <div class="course"><i class="fas fa-circle-check"></i> Programación Orientada a Objetos</div>
-          <div class="course"><i class="fas fa-circle-check"></i> Bases de Datos</div>
-          <div class="course"><i class="fas fa-circle-check"></i> Ingeniería de Software</div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- Habilidades -->
-  <section class="section section-alt" id="habilidades">
+  <section class="section" id="habilidades">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-eyebrow">04 — Competencias</span>
-        <h2 class="section-title">Habilidades técnicas</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-category reveal">
-          <div class="skill-category-header">
-            <i class="fab fa-microsoft"></i>
-            <h3>Microsoft Dynamics</h3>
+      <header class="section-head reveal">
+        <div class="section-index">— 04</div>
+        <h2 class="section-title">Stack <em>técnico</em></h2>
+      </header>
+      <div class="skills-matrix">
+        <div class="skill-block reveal">
+          <div class="skill-block-top">
+            <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+            <span class="skill-number">01</span>
           </div>
-          <div class="skill-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Dynamics 365 Business Central</span>
-                <span>90%</span>
-              </div>
-              <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+          <h3>Microsoft Dynamics</h3>
+          <p>Desarrollo especializado en el ecosistema Business Central con AL Language.</p>
+          <div class="skill-bars">
+            <div class="bar">
+              <div class="bar-top"><span>Dynamics 365 BC</span><span>Avanzado</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="90"></div></div>
             </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Lenguaje AL</span>
-                <span>85%</span>
-              </div>
-              <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+            <div class="bar">
+              <div class="bar-top"><span>AL Language</span><span>Avanzado</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="85"></div></div>
             </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Integraciones API</span>
-                <span>75%</span>
-              </div>
-              <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+            <div class="bar">
+              <div class="bar-top"><span>Integraciones API</span><span>Intermedio</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="75"></div></div>
             </div>
           </div>
         </div>
 
-        <div class="skill-category reveal">
-          <div class="skill-category-header">
-            <i class="fas fa-code"></i>
-            <h3>Desarrollo</h3>
+        <div class="skill-block reveal">
+          <div class="skill-block-top">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <span class="skill-number">02</span>
           </div>
-          <div class="skill-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Control de versiones (Git)</span>
-                <span>80%</span>
-              </div>
-              <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+          <h3>Desarrollo general</h3>
+          <p>Fundamentos sólidos de programación, control de versiones y bases de datos.</p>
+          <div class="skill-bars">
+            <div class="bar">
+              <div class="bar-top"><span>Git · GitHub</span><span>Avanzado</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="80"></div></div>
             </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Bases de datos SQL</span>
-                <span>75%</span>
-              </div>
-              <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+            <div class="bar">
+              <div class="bar-top"><span>SQL</span><span>Intermedio</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="75"></div></div>
             </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span>Patrones de diseño</span>
-                <span>70%</span>
-              </div>
-              <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+            <div class="bar">
+              <div class="bar-top"><span>Patrones de diseño</span><span>Intermedio</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="70"></div></div>
             </div>
           </div>
         </div>
 
-        <div class="skill-category reveal">
-          <div class="skill-category-header">
-            <i class="fas fa-user-tie"></i>
-            <h3>Competencias blandas</h3>
+        <div class="skill-block reveal">
+          <div class="skill-block-top">
+            <div class="skill-icon"><i class="fas fa-user-gear"></i></div>
+            <span class="skill-number">03</span>
           </div>
-          <div class="skill-chips">
-            <span class="chip">Resolución de problemas</span>
-            <span class="chip">Trabajo en equipo</span>
-            <span class="chip">Aprendizaje continuo</span>
-            <span class="chip">Atención al detalle</span>
-            <span class="chip">Comunicación efectiva</span>
-            <span class="chip">Organización</span>
-          </div>
+          <h3>Competencias</h3>
+          <p>Habilidades blandas que refuerzan mi desempeño en entornos profesionales.</p>
+          <ul class="skill-chips">
+            <li>Resolución de problemas</li>
+            <li>Trabajo en equipo</li>
+            <li>Atención al detalle</li>
+            <li>Aprendizaje continuo</li>
+            <li>Comunicación</li>
+            <li>Organización</li>
+          </ul>
         </div>
 
-        <div class="skill-category reveal">
-          <div class="skill-category-header">
-            <i class="fas fa-globe"></i>
-            <h3>Idiomas</h3>
+        <div class="skill-block reveal">
+          <div class="skill-block-top">
+            <div class="skill-icon"><i class="fas fa-globe"></i></div>
+            <span class="skill-number">04</span>
           </div>
-          <div class="language-list">
-            <div class="language-item">
-              <span>Español</span>
-              <span class="badge">Nativo</span>
+          <h3>Idiomas</h3>
+          <p>Comunicación clara con equipos distribuidos en español e inglés.</p>
+          <div class="language-rows">
+            <div class="lang">
+              <div><strong>Español</strong><span>Lengua materna</span></div>
+              <span class="lang-level">Nativo</span>
             </div>
-            <div class="language-item">
-              <span>Inglés</span>
-              <span class="badge">Intermedio</span>
+            <div class="lang">
+              <div><strong>Inglés</strong><span>Lectura técnica fluida</span></div>
+              <span class="lang-level">Intermedio</span>
             </div>
           </div>
         </div>
@@ -296,78 +381,86 @@
     </div>
   </section>
 
-  <!-- Intereses -->
-  <section class="section" id="intereses">
+  <!-- Enfoque actual -->
+  <section class="section section-cream" id="enfoque">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-eyebrow">05 — Enfoque actual</span>
-        <h2 class="section-title">Áreas en desarrollo</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="interests-grid">
-        <div class="interest-card reveal">
-          <div class="interest-number">01</div>
+      <header class="section-head reveal">
+        <div class="section-index">— 05</div>
+        <h2 class="section-title">Enfoque <em>actual</em></h2>
+      </header>
+      <div class="focus-grid">
+        <article class="focus-card reveal">
+          <span class="focus-num">01</span>
           <h3>AL Avanzado</h3>
-          <p>Profundizando en técnicas avanzadas de desarrollo AL para soluciones empresariales escalables.</p>
-        </div>
-        <div class="interest-card reveal">
-          <div class="interest-number">02</div>
+          <p>Profundizando en técnicas avanzadas de desarrollo AL para escalar soluciones en Business Central.</p>
+          <span class="focus-link">En curso <i class="fas fa-arrow-right"></i></span>
+        </article>
+        <article class="focus-card reveal">
+          <span class="focus-num">02</span>
           <h3>Patrones de diseño</h3>
-          <p>Aplicación de patrones de diseño en el contexto de Business Central para código mantenible.</p>
-        </div>
-        <div class="interest-card reveal">
-          <div class="interest-number">03</div>
+          <p>Aplicando patrones clásicos al contexto de BC para maximizar mantenibilidad y legibilidad.</p>
+          <span class="focus-link">En curso <i class="fas fa-arrow-right"></i></span>
+        </article>
+        <article class="focus-card reveal">
+          <span class="focus-num">03</span>
           <h3>Integraciones API</h3>
-          <p>Conexión de Business Central con sistemas externos mediante APIs REST y servicios web.</p>
-        </div>
-        <div class="interest-card reveal">
-          <div class="interest-number">04</div>
-          <h3>Control de versiones</h3>
-          <p>Mejora continua de flujos de trabajo con Git y estándares de código limpio.</p>
-        </div>
+          <p>Conectando Business Central con sistemas externos vía APIs REST y servicios web seguros.</p>
+          <span class="focus-link">En curso <i class="fas fa-arrow-right"></i></span>
+        </article>
+        <article class="focus-card reveal">
+          <span class="focus-num">04</span>
+          <h3>Git &amp; DevOps</h3>
+          <p>Mejora continua de flujos de versionado y colaboración con estándares de código limpio.</p>
+          <span class="focus-link">En curso <i class="fas fa-arrow-right"></i></span>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- Contacto -->
-  <section class="section section-alt" id="contacto">
+  <section class="section section-dark" id="contacto">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-eyebrow">06 — Contacto</span>
-        <h2 class="section-title">Trabajemos juntos</h2>
-        <div class="section-line"></div>
-        <p class="section-subtitle">
-          Si trabajas con el ecosistema Dynamics 365 o te interesa conectar con desarrolladores de Business Central, estaré encantada de conversar.
+      <header class="section-head reveal light">
+        <div class="section-index">— 06</div>
+        <h2 class="section-title">Trabajemos <em>juntos</em></h2>
+        <p class="section-sub">
+          Si trabajas con el ecosistema Dynamics 365 o te interesa conectar con desarrolladores de Business Central en Latinoamérica, estaré encantada de conversar.
         </p>
-      </div>
+      </header>
       <div class="contact-grid">
         <div class="contact-info reveal">
-          <a href="mailto:gabrielprinzlandeo@gmail.com" class="contact-card">
-            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <a href="mailto:gabrielprinzlandeo@gmail.com" class="contact-row">
             <div>
-              <span class="contact-label">Correo electrónico</span>
-              <span class="contact-value">gabrielprinzlandeo@gmail.com</span>
+              <span class="c-label">Correo</span>
+              <span class="c-value">gabrielprinzlandeo@gmail.com</span>
             </div>
+            <i class="fas fa-arrow-up-right-from-square"></i>
           </a>
-          <a href="https://www.linkedin.com/in/gabriela-vargas-2989b23bb/" target="_blank" class="contact-card">
-            <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+          <a href="https://www.linkedin.com/in/gabriela-vargas-2989b23bb/" target="_blank" class="contact-row">
             <div>
-              <span class="contact-label">LinkedIn</span>
-              <span class="contact-value">gabriela-vargas</span>
+              <span class="c-label">LinkedIn</span>
+              <span class="c-value">/in/gabriela-vargas</span>
             </div>
+            <i class="fas fa-arrow-up-right-from-square"></i>
           </a>
-          <div class="contact-card">
-            <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+          <a href="https://github.com/gabrielavarrgas2006-lgtm" target="_blank" class="contact-row">
             <div>
-              <span class="contact-label">Ubicación</span>
-              <span class="contact-value">Pozos, San José, Costa Rica</span>
+              <span class="c-label">GitHub</span>
+              <span class="c-value">gabrielavarrgas2006-lgtm</span>
             </div>
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+          <div class="contact-row static">
+            <div>
+              <span class="c-label">Ubicación</span>
+              <span class="c-value">San José, Costa Rica</span>
+            </div>
+            <i class="fas fa-location-dot"></i>
           </div>
-          <div class="contact-card">
-            <div class="contact-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="contact-row static">
             <div>
-              <span class="contact-label">Estado actual</span>
-              <span class="contact-value">Abierta a oportunidades</span>
+              <span class="c-label">Estado</span>
+              <span class="c-value"><span class="state-dot"></span> Disponible para oportunidades</span>
             </div>
           </div>
         </div>
@@ -392,7 +485,8 @@
             <label for="message">Mensaje</label>
           </div>
           <button type="submit" class="btn btn-primary btn-block">
-            Enviar mensaje <i class="fas fa-paper-plane"></i>
+            <span>Enviar mensaje</span>
+            <i class="fas fa-arrow-right"></i>
           </button>
         </form>
       </div>
@@ -402,36 +496,40 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-main">
-          <div class="footer-brand">
-            <span class="logo-mark">GV</span>
-            <div>
-              <strong>Gabriela Vargas</strong>
-              <span>Developer Junior · Dynamics 365 BC</span>
-            </div>
-          </div>
-          <div class="footer-socials">
-            <a href="https://www.linkedin.com/in/gabriela-vargas-2989b23bb/" target="_blank" aria-label="LinkedIn">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="mailto:gabrielprinzlandeo@gmail.com" aria-label="Email">
-              <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://github.com/gabrielavarrgas2006-lgtm" target="_blank" aria-label="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-mark light">gv</span>
+          <div>
+            <strong>Gabriela Vargas</strong>
+            <em>Developer Junior · Dynamics 365 BC</em>
           </div>
         </div>
-        <div class="footer-bottom">
-          <span>© 2026 Gabriela Vargas. Todos los derechos reservados.</span>
-          <span>Diseñado y desarrollado con dedicación.</span>
+        <nav class="footer-nav">
+          <a href="#inicio">Inicio</a>
+          <a href="#sobre-mi">Perfil</a>
+          <a href="#experiencia">Trayectoria</a>
+          <a href="#habilidades">Stack</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Gabriela Vargas. Todos los derechos reservados.</span>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/gabriela-vargas-2989b23bb/" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:gabrielprinzlandeo@gmail.com" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://github.com/gabrielavarrgas2006-lgtm" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Botón volver arriba -->
+  <!-- Volver arriba -->
   <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
     <i class="fas fa-arrow-up"></i>
   </button>

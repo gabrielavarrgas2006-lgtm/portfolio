@@ -1,16 +1,18 @@
-// =============================
-// Navbar — scroll + menú móvil
-// =============================
+// =========================================
+// Navbar scroll + menú móvil
+// =========================================
 const navbar = document.getElementById('navbar');
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.querySelector('.nav-links');
 
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+
+  // Progress bar
+  const progress = document.getElementById('scrollProgress');
+  const scrolled = window.scrollY;
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (scrolled / height) * 100 + '%';
 });
 
 menuToggle.addEventListener('click', () => {
@@ -25,15 +27,15 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
-// =============================
-// Máquina de escribir
-// =============================
+// =========================================
+// Typing effect
+// =========================================
 const typingEl = document.getElementById('typing');
 const phrases = [
   'Developer Junior',
-  'Microsoft Dynamics 365 Business Central',
+  'Dynamics 365 Business Central',
   'AL Language Developer',
-  'Estudiante de Ingeniería en Software'
+  'Estudiante de Software'
 ];
 
 let phraseIdx = 0;
@@ -42,17 +44,12 @@ let isDeleting = false;
 
 function typeLoop() {
   const current = phrases[phraseIdx];
+  typingEl.textContent = current.substring(0, isDeleting ? charIdx-- : charIdx++);
 
-  if (isDeleting) {
-    typingEl.textContent = current.substring(0, charIdx--);
-  } else {
-    typingEl.textContent = current.substring(0, charIdx++);
-  }
-
-  let delay = isDeleting ? 40 : 80;
+  let delay = isDeleting ? 35 : 70;
 
   if (!isDeleting && charIdx === current.length + 1) {
-    delay = 1800;
+    delay = 2000;
     isDeleting = true;
   } else if (isDeleting && charIdx === 0) {
     isDeleting = false;
@@ -65,63 +62,75 @@ function typeLoop() {
 
 typeLoop();
 
-// =============================
-// Revelado al hacer scroll
-// =============================
+// =========================================
+// Cursor personalizado (solo desktop/hover)
+// =========================================
+(function customCursor() {
+  if (!window.matchMedia('(hover: hover)').matches) return;
+
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+    document.body.classList.add('cursor-ready');
+  });
+
+  function animateRing() {
+    rx += (mx - rx) * 0.18;
+    ry += (my - ry) * 0.18;
+    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.addEventListener('mouseleave', () => {
+    document.body.classList.remove('cursor-ready');
+  });
+
+  const interactive = 'a, button, input, textarea, .chip, .focus-card, .skill-block, .t-body, .contact-row';
+  document.querySelectorAll(interactive).forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+})();
+
+// =========================================
+// Reveal + barras
+// =========================================
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('active');
 
-      // barras de habilidades
-      entry.target.querySelectorAll('.skill-progress').forEach(bar => {
-        const width = bar.getAttribute('data-width');
-        bar.style.width = width + '%';
-      });
-
-      // contadores
-      entry.target.querySelectorAll('.stat-number[data-target]').forEach(el => {
-        if (el.dataset.animated) return;
-        el.dataset.animated = 'true';
-        const target = parseInt(el.getAttribute('data-target'), 10);
-        let count = 0;
-        const step = Math.max(1, Math.floor(target / 40));
-        const timer = setInterval(() => {
-          count += step;
-          if (count >= target) {
-            el.textContent = target;
-            clearInterval(timer);
-          } else {
-            el.textContent = count;
-          }
-        }, 30);
+      entry.target.querySelectorAll('.bar-fill').forEach(bar => {
+        const w = bar.getAttribute('data-width');
+        bar.style.width = w + '%';
       });
     }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// =============================
-// Botón volver arriba
-// =============================
+// =========================================
+// Volver arriba
+// =========================================
 const backBtn = document.getElementById('backToTop');
 
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) {
-    backBtn.classList.add('visible');
-  } else {
-    backBtn.classList.remove('visible');
-  }
+  backBtn.classList.toggle('visible', window.scrollY > 500);
 });
 
 backBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// =============================
-// Formulario de contacto
-// =============================
+// =========================================
+// Formulario
+// =========================================
 const form = document.getElementById('contactForm');
 
 form.addEventListener('submit', (e) => {
@@ -136,15 +145,15 @@ form.addEventListener('submit', (e) => {
 
   const btn = form.querySelector('button');
   const original = btn.innerHTML;
-  btn.innerHTML = '<i class="fas fa-check"></i> ¡Mensaje listo!';
-  setTimeout(() => { btn.innerHTML = original; form.reset(); }, 2500);
+  btn.innerHTML = '<span>Mensaje preparado</span> <i class="fas fa-check"></i>';
+  setTimeout(() => { btn.innerHTML = original; form.reset(); }, 2800);
 });
 
-// =============================
-// Saludo en consola
-// =============================
+// =========================================
+// Consola
+// =========================================
 console.log(
-  '%cGabriela Vargas — Developer Junior',
-  'font-size: 16px; font-weight: 600; background: #1e1a1d; color: #eec3d1; padding: 10px 18px; border-radius: 6px;'
+  '%c Gabriela Vargas · Developer Junior ',
+  'font-family: serif; font-style: italic; font-size: 18px; background: #1e1217; color: #efd0dc; padding: 14px 24px; border-radius: 6px;'
 );
-console.log('%cPortafolio profesional · Microsoft Dynamics 365 Business Central', 'font-size: 12px; color: #8c4f68;');
+console.log('%cPortafolio profesional · Microsoft Dynamics 365 Business Central', 'font-size: 12px; color: #864768; letter-spacing: 0.05em;');
