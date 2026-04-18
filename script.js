@@ -141,7 +141,7 @@ form.addEventListener('submit', (e) => {
   const message = document.getElementById('message').value;
 
   const body = `Hola Gabriela,%0D%0A%0D%0A${encodeURIComponent(message)}%0D%0A%0D%0ASaludos,%0D%0A${encodeURIComponent(name)} (${encodeURIComponent(email)})`;
-  window.location.href = `mailto:gabrielprinzlandeo@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+  window.location.href = `mailto:gabrielavarrgas2006@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
 
   const btn = form.querySelector('button');
   const original = btn.innerHTML;
