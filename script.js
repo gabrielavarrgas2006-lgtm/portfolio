@@ -30,11 +30,10 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 // =============================
 const typingEl = document.getElementById('typing');
 const phrases = [
-  'Developer Junior 💻',
-  'Microsoft Dynamics 365 BC',
+  'Developer Junior',
+  'Microsoft Dynamics 365 Business Central',
   'AL Language Developer',
-  'Estudiante de Software 📚',
-  'Chica programadora 👩‍💻'
+  'Estudiante de Ingeniería en Software'
 ];
 
 let phraseIdx = 0;
@@ -142,45 +141,10 @@ form.addEventListener('submit', (e) => {
 });
 
 // =============================
-// Cursor con brillo (solo escritorio)
-// =============================
-if (window.matchMedia('(hover: hover)').matches) {
-  document.addEventListener('mousemove', (e) => {
-    const sparkle = document.createElement('span');
-    sparkle.className = 'sparkle';
-    sparkle.style.cssText = `
-      position: fixed;
-      left: ${e.clientX}px;
-      top: ${e.clientY}px;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #ff8bb3, transparent);
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      animation: sparkleFade 0.8s ease forwards;
-    `;
-    document.body.appendChild(sparkle);
-    setTimeout(() => sparkle.remove(), 800);
-  });
-
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes sparkleFade {
-      to {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(3);
-      }
-    }
-  `;
-  document.head.appendChild(style);
-}
-
-// =============================
 // Saludo en consola
 // =============================
 console.log(
-  '%c¡Hola! 👋 Soy Gabriela Vargas',
-  'font-size: 18px; font-weight: bold; background: linear-gradient(135deg, #ff8bb3, #ff6b9d); color: white; padding: 10px 20px; border-radius: 10px;'
+  '%cGabriela Vargas — Developer Junior',
+  'font-size: 16px; font-weight: 600; background: #1e1a1d; color: #eec3d1; padding: 10px 18px; border-radius: 6px;'
 );
-console.log('%cSi llegaste hasta aquí, conectemos en LinkedIn 💕', 'font-size: 13px; color: #ff6b9d;');
+console.log('%cPortafolio profesional · Microsoft Dynamics 365 Business Central', 'font-size: 12px; color: #8c4f68;');
